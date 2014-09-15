@@ -75,6 +75,7 @@ TARGET_RECOVERY_DEVICE_MODULES += libxml2
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
 
 # TWRP Configuration
+RECOVERY_SDCARD_ON_DATA := true
 TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_SCREEN_BLANK_ON_BOOT := true
