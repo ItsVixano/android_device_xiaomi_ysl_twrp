@@ -23,3 +23,8 @@ cc_library_headers {
     name: "libcryptfs_hw_headers",
     export_include_dirs: ["."],
 }
+
+cc_library_headers {
+    name: "qseecom-kernel-headers",
+    export_include_dirs: ["."],
+}
