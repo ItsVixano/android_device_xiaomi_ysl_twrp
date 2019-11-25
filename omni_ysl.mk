@@ -13,7 +13,13 @@ $(call inherit-product, build/target/product/embedded.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.keystore=msm8953
+    ro.hardware.keystore=msm8953 \
+    ro.bootimage.build.date.utc=1514797200 \
+    ro.build.date.utc=1514797200
+
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.bootimage.build.date.utc \
+    ro.build.date.utc
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ysl
