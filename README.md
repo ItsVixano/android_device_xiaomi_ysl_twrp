@@ -1,11 +1,11 @@
-# android_device_xiaomi_mido
+# android_device_xiaomi_ysl
 
-For building TWRP for Xiaomi Redmi Note 4(X) Snapdragon ONLY
+For building TWRP for Xiaomi Redmi S2/Y2
 
 To compile:
 
 ```
-. build/envsetup.sh && breakfast mido eng && mka recoveryimage
+. build/envsetup.sh && breakfast ysl eng && mka recoveryimage
 ```
 
-Kernel source: [KudProject/kernel_xiaomi_msm8953-4.9](https://github.com/KudProject/kernel_xiaomi_msm8953-4.9)
+Kernel source: [ItsVixano/android_kernel_xiaomi_ysl](https://github.com/ItsVixano/android_kernel_xiaomi_ysl/tree/twrp)
