@@ -42,6 +42,15 @@ DEVICE_BRANCH="android-9.0"
 
 # Check https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni branches for that
 TWRP_VERSION="twrp-9.0"
+USE_CUSTOM_MANIFEST="yes"
+
+# manifest setup
+if [ "$USE_CUSTOM_MANIFEST" = yes ];
+then
+	REPO_INIT="https://github.com/ItsVixano/platform_manifest_twrp_omni"
+else
+	REPO_INIT="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni"
+fi
 
 # Telgram env setup
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
@@ -89,14 +98,13 @@ export IMG="$MY_DIR"/TWRP/out/target/product/"$CODENAME"/recovery.img
 
 # Init TWRP repo
 mkdir TWRP && cd TWRP
-repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b "$TWRP_VERSION" --depth=1
+repo init -u "$REPO_INIT" -b "$TWRP_VERSION" --depth=1
 repo sync -c --force-sync --no-tags --no-clone-bundle --optimized-fetch --prune
 
 # Clone device tree
 git clone "$DEVICE_TREE" -b "$DEVICE_BRANCH" --depth=1 device/"$VENDOR"/"$CODENAME"/
 
 # let's start building the image
-
 tg_post_msg "<b>TWRP CI Build Triggered for $DEVICE</b>" "$CHATID"
 build_twrp || error=true
 DATE=$(date +"%Y%m%d")
