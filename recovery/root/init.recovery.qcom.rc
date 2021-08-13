@@ -1,3 +1,9 @@
+#
+# Copyright (C) 2021 The Android Open Source Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
